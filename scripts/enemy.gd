@@ -1,5 +1,4 @@
 extends Area2D
-
 class_name Enemy
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -7,14 +6,14 @@ class_name Enemy
 @export var speed: float = 25.0
 @export var direction_intersection_change_chance: float = 0.5
 @export var change_direction_timeout: float = 3.0
-var current_change_direction_timeout: float = 0.0
 
+var current_change_direction_timeout: float = 0.0
 var direction: Vector2 = Vector2.LEFT
 var tile_map: TileMapLayer
 
 func _ready() -> void:
 	tile_map = get_tree().get_first_node_in_group("tilemap")
-
+	animated_sprite_2d.play("default")  # FIXED: Start animation
 
 func _process(delta: float) -> void:
 	position += direction * speed * delta
@@ -55,14 +54,14 @@ func calculate_new_direction(current_direction: Vector2, prevent_backtracking: b
 	return current_direction
 
 func is_direction_blocked(direction_to_check: Vector2):
-	var position_to_check = round(position/16)*16  + direction_to_check*16
+	var position_to_check = round(position/16)*16 + direction_to_check*16
 	var local_position_to_check = tile_map.to_local(position_to_check)
 	var tile_position = tile_map.local_to_map(local_position_to_check)
 	var tile_data = tile_map.get_cell_tile_data(tile_position)
 	return tile_data != null
 	
 func _on_area_entered(area: Area2D) -> void:
-	if (area is Player):
+	if area is Player:
 		(area as Player).die()
 	else:
 		direction = calculate_new_direction(direction, false)
@@ -71,14 +70,13 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		direction = calculate_new_direction(direction, false)
 	
-
 func change_sprite_direction(new_direction: Vector2):
 	if [Vector2.LEFT, Vector2.RIGHT].has(new_direction):
 		animated_sprite_2d.scale.x = sign(new_direction.x)
 
 func die():
 	animated_sprite_2d.play("die")
-	set_physics_process(false)
+	set_process(false)  # FIXED: Changed from set_physics_process
 	speed = 0
 	direction = Vector2.ZERO
 	set_collision_mask_value(1, false)

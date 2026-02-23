@@ -1,14 +1,12 @@
 extends Node
-
 class_name BombPlacementSystem 
 
 const BOMB_SCENE = preload("res://scenes/bomb.tscn")
-
 const TILE_SIZE = 16
 
 var player: Player = null
 var bombs_placed = 0 
-var explosion_size = 4
+var explosion_size = 1
 
 func _ready() -> void:
 	player = get_parent()
@@ -29,8 +27,4 @@ func place_bomb():
 	bomb.tree_exiting.connect(on_bomb_exploded)
 	
 func on_bomb_exploded():
-	bombs_placed -= 1	
-
-	
-	
-	
+	bombs_placed -= 1

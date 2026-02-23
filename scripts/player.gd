@@ -1,5 +1,4 @@
 extends Area2D
-
 class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -7,22 +6,19 @@ class_name Player
 @onready var bomb_placement_system: BombPlacementSystem = $BombPlacementSystem
 @onready var power_up_system: Node = $PowerUpSystem
 
-
 @export var movement_speed: float = 75
 
 var max_bombs_at_once = 1
-
 var movement: Vector2 = Vector2.ZERO
 
 func _process(delta: float) -> void:
-
 	var collisions = raycasts.check_collisions()
 	
 	if collisions.has(movement):
 		return
 	position += movement * delta * movement_speed
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:  # Added underscore to event
 	if Input.is_action_pressed("right"):
 		movement = Vector2.RIGHT
 		animated_sprite_2d.play("walk_right")
@@ -51,12 +47,10 @@ func _on_area_entered(area: Area2D) -> void:
 		power_up_system.enable_power_up((area as PowerUp).type)
 		area.queue_free()
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "die":
 		queue_free()
 		print("game over")
-
 
 func _on_speed_up_timer_timeout() -> void:
 	pass # Replace with function body.
