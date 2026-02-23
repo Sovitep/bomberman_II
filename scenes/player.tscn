@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://e8kfwotlh628"]
+[gd_scene load_steps=25 format=3 uid="uid://e8kfwotlh628"]
 
-[ext_resource type="Script" uid="uid://mi0k5fiv6ypv" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://mi0k5fiv6ypv" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://hl6k3utbn706" path="res://scripts/bomb_placement_system.gd" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://r5f0mt3mgxp8" path="res://assets/Imgs/Sprites.png" id="4_hqtel"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4flbx"]
@@ -169,17 +170,82 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tmop"]
-radius = 6.0
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_onrkg")
+movement_speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pbfsw")
-animation = &"walk_down"
-autoplay = "walk_down"
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9469451
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_5tmop")
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Horizontal" type="Node2D" parent="Raycasts"]
+
+[node name="Left" type="Node2D" parent="Raycasts/Horizontal"]
+
+[node name="LeftHorizontalBottom" type="RayCast2D" parent="Raycasts/Horizontal/Left"]
+position = Vector2(-2, 6)
+target_position = Vector2(-2, 0)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="LeftHorizontalTop" type="RayCast2D" parent="Raycasts/Horizontal/Left"]
+position = Vector2(-2, -6)
+target_position = Vector2(-2, 0)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="Right" type="Node2D" parent="Raycasts/Horizontal"]
+
+[node name="RightHorizontalBottom" type="RayCast2D" parent="Raycasts/Horizontal/Right"]
+position = Vector2(2, 6)
+target_position = Vector2(2, 0)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="RightHorizontalTop" type="RayCast2D" parent="Raycasts/Horizontal/Right"]
+position = Vector2(2, -6)
+target_position = Vector2(2, 0)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="Vertical" type="Node2D" parent="Raycasts"]
+
+[node name="Top" type="Node2D" parent="Raycasts/Vertical"]
+
+[node name="TopVerticalRight" type="RayCast2D" parent="Raycasts/Vertical/Top"]
+position = Vector2(3, -6)
+target_position = Vector2(0, -2)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="TopVerticalLeft" type="RayCast2D" parent="Raycasts/Vertical/Top"]
+position = Vector2(-3, -6)
+target_position = Vector2(0, -2)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="Bottom" type="Node2D" parent="Raycasts/Vertical"]
+
+[node name="BottomVerticalRight" type="RayCast2D" parent="Raycasts/Vertical/Bottom"]
+position = Vector2(-2, 6)
+target_position = Vector2(0, 2)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="BottomVerticalLeft" type="RayCast2D" parent="Raycasts/Vertical/Bottom"]
+position = Vector2(-2, 6)
+target_position = Vector2(0, 2)
+collision_mask = 14
+collide_with_areas = true
+
+[node name="BombPlacementSystem" type="Node" parent="."]
+script = ExtResource("3_qhqgy")
