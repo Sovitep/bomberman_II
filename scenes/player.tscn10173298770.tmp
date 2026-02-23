@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://e8kfwotlh628"]
+[gd_scene load_steps=27 format=3 uid="uid://e8kfwotlh628"]
 
 [ext_resource type="Script" uid="uid://mi0k5fiv6ypv" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://hl6k3utbn706" path="res://scripts/bomb_placement_system.gd" id="3_qhqgy"]
-[ext_resource type="Script" uid="uid://ddin138tmn63o" path="res://scripts/raycasts.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://bjhx5rq28xwke" path="res://scripts/power_up_system.gd" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://r5f0mt3mgxp8" path="res://assets/Imgs/Sprites.png" id="4_hqtel"]
 
@@ -190,7 +189,6 @@ frame_progress = 0.9469451
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Raycasts" type="Node2D" parent="."]
-script = ExtResource("3_qlg0r")
 
 [node name="Horizontal" type="Node2D" parent="Raycasts"]
 
@@ -263,7 +261,4 @@ shape = SubResource("RectangleShape2D_qhqgy")
 [node name="PowerUpSystem" type="Node" parent="."]
 script = ExtResource("4_dqkch")
 
-[node name="SpeedUpTimer" type="Timer" parent="PowerUpSystem"]
-
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="timeout" from="PowerUpSystem/SpeedUpTimer" to="PowerUpSystem" method="_on_speed_up_timer_timeout"]

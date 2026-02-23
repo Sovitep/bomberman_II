@@ -146,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2uesp")
 }],
-"loop": true,
+"loop": false,
 "name": &"down_end",
 "speed": 5.0
 }, {
@@ -163,7 +163,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ypebe")
 }],
-"loop": true,
+"loop": false,
 "name": &"down_middle",
 "speed": 5.0
 }, {
@@ -180,7 +180,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_playr")
 }],
-"loop": true,
+"loop": false,
 "name": &"left_end",
 "speed": 5.0
 }, {
@@ -197,7 +197,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3i5do")
 }],
-"loop": true,
+"loop": false,
 "name": &"left_middle",
 "speed": 5.0
 }, {
@@ -214,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k741q")
 }],
-"loop": true,
+"loop": false,
 "name": &"right-middle",
 "speed": 5.0
 }, {
@@ -231,7 +231,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d4w0q")
 }],
-"loop": true,
+"loop": false,
 "name": &"right_end",
 "speed": 5.0
 }, {
@@ -248,7 +248,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n5f4e")
 }],
-"loop": true,
+"loop": false,
 "name": &"up_end",
 "speed": 5.0
 }, {
@@ -265,7 +265,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5ks1g")
 }],
-"loop": true,
+"loop": false,
 "name": &"up_middle",
 "speed": 5.0
 }]
@@ -278,7 +278,7 @@ script = ExtResource("1_u7cai")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5wqds")
-animation = &"up_middle"
+animation = &"down_end"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hmo2x")

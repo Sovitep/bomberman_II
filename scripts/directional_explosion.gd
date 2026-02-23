@@ -11,5 +11,5 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Player:
 		(area as Player).die()
 	
-	if area is Enemy:
-		(area as Enemy).die()
+#	if area is Enemy:
+#		(area as Enemy).die()

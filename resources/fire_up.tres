@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PowerUpRes" load_steps=3 format=3 uid="uid://c5rvwmwkixt27"]
+
+[ext_resource type="Script" uid="uid://dbgg6q4ji7t6m" path="res://scripts/power_up_res.gd" id="1_wllas"]
+[ext_resource type="Texture2D" uid="uid://g8uegl7aktdu" path="res://assets/Imgs/PowerUpFireUp.png" id="2_gq246"]
+
+[resource]
+script = ExtResource("1_wllas")
+type = 1
+texture = ExtResource("2_gq246")

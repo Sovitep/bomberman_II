@@ -15,6 +15,10 @@ run/main_scene="uid://8j1rsymiyb3c"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Utils="*res://scripts/utils.gd"
+
 [input]
 
 right={
@@ -51,6 +55,7 @@ place_bomb={
 2d_physics/layer_4="Bomb"
 2d_physics/layer_5="Explosion"
 2d_physics/layer_6="Enemy"
+2d_physics/layer_7="PowerUp"
 
 [rendering]
 

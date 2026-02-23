@@ -56,3 +56,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "die":
 		queue_free()
 		print("game over")
+
+
+func _on_speed_up_timer_timeout() -> void:
+	pass # Replace with function body.
