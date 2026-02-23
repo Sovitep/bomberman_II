@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://8j1rsymiyb3c"]
+[gd_scene load_steps=14 format=4 uid="uid://8j1rsymiyb3c"]
 
 [ext_resource type="Texture2D" uid="uid://df2t7hpofl7im" path="res://assets/Imgs/BackgroundLoseScore.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://cbfnv1lfs0ab1" path="res://assets/Imgs/AllTilesets.png" id="2_epypp"]
@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://bp0t13ygufjyj" path="res://resources/wall_pass.tres" id="7_3m5ht"]
 [ext_resource type="Resource" uid="uid://bkepnwdgfd5dw" path="res://resources/speed_up.tres" id="8_dubn7"]
 [ext_resource type="PackedScene" uid="uid://ltrf1bafvqje" path="res://scenes/enemy.tscn" id="9_dubn7"]
-[ext_resource type="Script" uid="uid://ccgo11ettp5rs" path="res://scripts/enemy.gd" id="10_08kqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("1_wtcfe")
@@ -3948,6 +3947,5 @@ power_up_res = ExtResource("7_3m5ht")
 position = Vector2(152, 88)
 power_up_res = ExtResource("8_dubn7")
 
-[node name="Enemy" parent="." instance=ExtResource("9_dubn7")]
-position = Vector2(152, 88)
-script = ExtResource("10_08kqv")
+[node name="Enemy2" parent="." instance=ExtResource("9_dubn7")]
+position = Vector2(344, 184)
