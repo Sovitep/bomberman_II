@@ -8,7 +8,7 @@ Bomberman was living a quiet life until one day he when he met an incident where
  
 
 ## Youtube Link
-- CS427 - BombermanII Game Demo
+- CS427 - BombermanII Game Demo:
  https://youtu.be/Vg8smkeiXIM 
 
 
@@ -19,7 +19,7 @@ Bomberman was living a quiet life until one day he when he met an incident where
 
 ##  Assets Used
 ### Tile Sets 
-- Sprites are from Bomberman repository
+- Sprites are from Bomberman repository:
 https://github.com/wojciech-bilicki/bombermantutorial
 
 ## Installing & Running
@@ -30,4 +30,6 @@ git clone https://github.com/Sovitep/bomberman_II.git
 
 # Navigate to the folder
 cd bomberman_II
+
+#Open the project using Godot Engine(4.5.x or later)
 ```
