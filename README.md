@@ -22,6 +22,14 @@ Bomberman was living a quiet life until one day he when he met an incident where
 - Sprites are from Bomberman repository:
 https://github.com/wojciech-bilicki/bombermantutorial
 
+## Technology Used
+- Game Engine: Godot Engine 4.5.1
+- Language: GDScript
+- Platform: PC(Laptop)
+
+## AI Disclosure
+- AI Model Used: Claude (Anthropic)
+- Help arrange the scene and physical layer, and help fix scripts
 ## Installing & Running
 
 ```bash
