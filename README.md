@@ -25,7 +25,7 @@ https://github.com/wojciech-bilicki/bombermantutorial
 ## Technology Used
 - Game Engine: Godot Engine 4.5.1
 - Language: GDScript
-- Platform: PC(Laptop)
+- Platform: PC (Laptop)
 
 ## AI Disclosure
 - AI Model Used: Claude (Anthropic)
