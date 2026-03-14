@@ -103,7 +103,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2hs0m")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -177,6 +177,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 
 [node name="Player" type="Area2D"]
+z_index = 1
 collision_mask = 64
 script = ExtResource("1_onrkg")
 
@@ -184,7 +185,6 @@ script = ExtResource("1_onrkg")
 sprite_frames = SubResource("SpriteFrames_pbfsw")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.9469451
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_onrkg")
@@ -196,13 +196,13 @@ script = ExtResource("3_qlg0r")
 
 [node name="Left" type="Node2D" parent="Raycasts/Horizontal"]
 
-[node name="LeftHorizontalBottom" type="RayCast2D" parent="Raycasts/Horizontal/Left"]
+[node name="LeftHorizontalBottom" type="RayCast2D" parent="Raycasts/Horizontal/Left" groups=["raycasts"]]
 position = Vector2(-2, 6)
 target_position = Vector2(-2, 0)
 collision_mask = 14
 collide_with_areas = true
 
-[node name="LeftHorizontalTop" type="RayCast2D" parent="Raycasts/Horizontal/Left"]
+[node name="LeftHorizontalTop" type="RayCast2D" parent="Raycasts/Horizontal/Left" groups=["raycasts"]]
 position = Vector2(-2, -6)
 target_position = Vector2(-2, 0)
 collision_mask = 14
@@ -210,13 +210,13 @@ collide_with_areas = true
 
 [node name="Right" type="Node2D" parent="Raycasts/Horizontal"]
 
-[node name="RightHorizontalBottom" type="RayCast2D" parent="Raycasts/Horizontal/Right"]
+[node name="RightHorizontalBottom" type="RayCast2D" parent="Raycasts/Horizontal/Right" groups=["raycasts"]]
 position = Vector2(2, 6)
 target_position = Vector2(2, 0)
 collision_mask = 14
 collide_with_areas = true
 
-[node name="RightHorizontalTop" type="RayCast2D" parent="Raycasts/Horizontal/Right"]
+[node name="RightHorizontalTop" type="RayCast2D" parent="Raycasts/Horizontal/Right" groups=["raycasts"]]
 position = Vector2(2, -6)
 target_position = Vector2(2, 0)
 collision_mask = 14
@@ -226,13 +226,13 @@ collide_with_areas = true
 
 [node name="Top" type="Node2D" parent="Raycasts/Vertical"]
 
-[node name="TopVerticalRight" type="RayCast2D" parent="Raycasts/Vertical/Top"]
+[node name="TopVerticalRight" type="RayCast2D" parent="Raycasts/Vertical/Top" groups=["raycasts"]]
 position = Vector2(3, -6)
 target_position = Vector2(0, -2)
 collision_mask = 14
 collide_with_areas = true
 
-[node name="TopVerticalLeft" type="RayCast2D" parent="Raycasts/Vertical/Top"]
+[node name="TopVerticalLeft" type="RayCast2D" parent="Raycasts/Vertical/Top" groups=["raycasts"]]
 position = Vector2(-3, -6)
 target_position = Vector2(0, -2)
 collision_mask = 14
@@ -240,13 +240,13 @@ collide_with_areas = true
 
 [node name="Bottom" type="Node2D" parent="Raycasts/Vertical"]
 
-[node name="BottomVerticalRight" type="RayCast2D" parent="Raycasts/Vertical/Bottom"]
+[node name="BottomVerticalRight" type="RayCast2D" parent="Raycasts/Vertical/Bottom" groups=["raycasts"]]
 position = Vector2(-2, 6)
 target_position = Vector2(0, 2)
 collision_mask = 14
 collide_with_areas = true
 
-[node name="BottomVerticalLeft" type="RayCast2D" parent="Raycasts/Vertical/Bottom"]
+[node name="BottomVerticalLeft" type="RayCast2D" parent="Raycasts/Vertical/Bottom" groups=["raycasts"]]
 position = Vector2(-2, 6)
 target_position = Vector2(0, 2)
 collision_mask = 14
@@ -263,7 +263,7 @@ shape = SubResource("RectangleShape2D_qhqgy")
 [node name="PowerUpSystem" type="Node" parent="."]
 script = ExtResource("4_dqkch")
 
-[node name="SpeedUpTimer" type="Timer" parent="PowerUpSystem"]
+[node name="SpeedUpTimer" type="Timer" parent="PowerUpSystem" groups=["raycasts"]]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="timeout" from="PowerUpSystem/SpeedUpTimer" to="PowerUpSystem" method="_on_speed_up_timer_timeout"]
+[connection signal="timeout" from="PowerUpSystem/SpeedUpTimer" to="." method="_on_speed_up_timer_timeout"]

@@ -8,7 +8,7 @@ var player: Player
 @onready var bomb_placement_system: BombPlacementSystem = $"../BombPlacementSystem"
 @onready var speed_up_timer: Timer = $SpeedUpTimer
 
-const SPEED_MULTIPLIER = 3
+const SPEED_MULTIPLIER = 2
 
 func _ready() -> void:
 	player = get_parent()
@@ -24,9 +24,10 @@ func enable_power_up(power_up_type: Utils.PowerUpType):
 			animated_sprite_2d.speed_scale = 3
 			speed_up_timer.start()
 		Utils.PowerUpType.WALL_PASS:
-			var raycast_nodes = get_tree().get_nodes_in_group("raycasts") as Array[RayCast2D]
+			var raycast_nodes = get_tree().get_nodes_in_group("raycasts")
 			for raycast in raycast_nodes:
-				raycast.set_collision_mask_value(3, false)
+				if raycast is RayCast2D:
+					raycast.set_collision_mask_value(3, false)
 
 
 func _on_speed_up_timer_timeout() -> void:

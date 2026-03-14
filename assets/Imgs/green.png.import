@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df2t7hpofl7im"
-path="res://.godot/imported/BackgroundLoseScore.png-a6dc1d526214f4bd624788e32f697f50.ctex"
+uid="uid://cowyo16r64q1l"
+path="res://.godot/imported/green.png-2601079ce553d5d57876e3dbab857782.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Imgs/BackgroundLoseScore.png"
-dest_files=["res://.godot/imported/BackgroundLoseScore.png-a6dc1d526214f4bd624788e32f697f50.ctex"]
+source_file="res://assets/Imgs/green.png"
+dest_files=["res://.godot/imported/green.png-2601079ce553d5d57876e3dbab857782.ctex"]
 
 [params]
 

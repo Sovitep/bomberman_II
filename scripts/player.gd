@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		return
 	position += movement * delta * movement_speed
 
-func _input(_event: InputEvent) -> void:  # Added underscore to event
+func _input(_event: InputEvent) -> void:  
 	if Input.is_action_pressed("right"):
 		movement = Vector2.RIGHT
 		animated_sprite_2d.play("walk_right")
@@ -51,6 +51,3 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "die":
 		queue_free()
 		print("game over")
-
-func _on_speed_up_timer_timeout() -> void:
-	pass # Replace with function body.
